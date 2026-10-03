@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>RouteCharge — Sign In</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body class="page-splash">
+  <div class="app-shell no-nav">
+    <div class="splash-bg" aria-hidden="true"></div>
+    <div class="splash-content">
+      <div class="logo-mark" aria-hidden="true"></div>
+      <h1 class="splash-title">RouteCharge</h1>
+      <p class="splash-tagline">Predict your range, discover stations, and charge with confidence.</p>
+
+      <div class="feature-row">
+        <div class="feature-chip">
+          <span class="chip-icon">⚡</span>
+          <span>Real-time EV range prediction</span>
+        </div>
+        <div class="feature-chip">
+          <span class="chip-icon">›</span>
+          <span>Optimized charging routes</span>
+        </div>
+      </div>
+
+      <div class="auth-panel">
+        <h2>Ready to charge?</h2>
+        <p class="muted">Sign in to sync your vehicle and saved routes.</p>
+
+        <div class="tabs-inline" role="tablist">
+          <button type="button" class="tab active" data-tab="login">Sign in</button>
+          <button type="button" class="tab" data-tab="signup">Register</button>
+        </div>
+
+        <form id="form-login" class="auth-form">
+          <input id="login-email" type="email" required placeholder="Email address" autocomplete="email" />
+          <input id="login-password" type="password" required placeholder="Password" minlength="6" autocomplete="current-password" />
+          <p id="auth-message" class="form-message" hidden></p>
+          <button type="submit" class="btn btn-primary btn-block">✉ Sign In with Email</button>
+        </form>
+
+        <form id="form-signup" class="auth-form hidden">
+          <input id="signup-name" type="text" required placeholder="Full name" autocomplete="name" />
+          <input id="signup-email" type="email" required placeholder="Email" autocomplete="email" />
+          <input id="signup-password" type="password" required placeholder="Password (min 6)" minlength="6" autocomplete="new-password" />
+          <button type="submit" class="btn btn-primary btn-block">Create account</button>
+        </form>
+
+        <button type="button" id="btn-guest" class="btn btn-ghost btn-block" style="margin-top:10px">👤 Continue as Guest</button>
+
+        <p class="legal">By continuing, you agree to our <a href="#">Terms of Service</a> and <a href="#">Privacy Policy</a>.</p>
+      </div>
+    </div>
+  </div>
+  <script src="script.js"></script>
+  <script src="auth.js"></script>
+</body>
+</html>

@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>RouteCharge — Select Vehicle</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="app-shell">
+    <div class="page-header">
+      <a href="route.html" class="icon-btn" aria-label="Back">‹</a>
+      <div>
+        <h1>Select Vehicle</h1>
+        <span class="subtitle">EFFICIENCY MODE</span>
+      </div>
+      <span class="icon-btn accent">⚡</span>
+    </div>
+
+    <div class="vehicle-list">
+      <p>Choose your vehicle type to optimize range predictions and station recommendations for your journey.</p>
+
+      <div class="vehicle-option" data-type="2wheeler">
+        <img src="vehicle-2wheeler.jpg" alt="Electric two-wheeler" class="vehicle-thumb" />
+        <div>
+          <span class="vehicle-badge">🏍 E-SCOOTER</span>
+          <h3>2-Wheeler</h3>
+          <p>Perfect for quick city hops and short commutes.</p>
+        </div>
+      </div>
+      <div class="vehicle-option" data-type="3wheeler">
+        <img src="vehicle-3wheeler.jpg" alt="Electric three-wheeler" class="vehicle-thumb" />
+        <div>
+          <span class="vehicle-badge">🛺 E-RICKSHAW</span>
+          <h3>3-Wheeler</h3>
+          <p>Optimized for local delivery and passenger transport.</p>
+        </div>
+      </div>
+      <div class="vehicle-option selected" data-type="4wheeler">
+        <img src="vehicle-4wheeler.jpg" alt="Electric four-wheeler" class="vehicle-thumb" />
+        <div>
+          <span class="vehicle-badge">🚗 EV SEDAN</span>
+          <h3>4-Wheeler</h3>
+          <p>Versatile electric sedans for family or professional use.</p>
+        </div>
+      </div>
+      <div class="vehicle-option" data-type="lorry">
+        <img src="vehicle-heavy.jpg" alt="Electric heavy vehicle" class="vehicle-thumb" />
+        <div>
+          <span class="vehicle-badge">🚛 E-TRUCK</span>
+          <h3>Heavy Vehicle</h3>
+          <p>Built for high-load logistics and long-range transport.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="info-box">
+      <span style="font-size:1.2rem">ℹ</span>
+      <div>
+        <h4>WHY THIS MATTERS?</h4>
+        <p>Vehicle weight and motor efficiency significantly impact energy consumption during climbs and high-speed driving.</p>
+      </div>
+    </div>
+
+    <div class="sticky-footer">
+      <button type="button" id="confirm-vehicle" class="btn btn-primary btn-block">Confirm Selection</button>
+    </div>
+  </div>
+  <script src="script.js"></script>
+  <script src="ui.js"></script>
+  <script>
+    if (!localStorage.getItem('ev_user')) location.href = 'login.html';
+    RouteChargeUI.mountBottomNav('search');
+  </script>
+</body>
+</html>

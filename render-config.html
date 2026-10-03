@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Render Config</title>
+    <link rel="stylesheet" href="render-config.css" />
+  </head>
+  <body>
+    <main class="page-shell">
+      <section class="config-panel" aria-label="Render configuration settings">
+        <div class="setting-row">
+          <div class="setting-copy">
+            <div class="setting-label-row">
+              <h2>Root Directory</h2>
+              <span class="optional-tag">Optional</span>
+            </div>
+            <p>
+              If set, Render runs commands from this directory instead of the
+              repository root. Additionally, code changes outside of this
+              directory do not trigger auto-deploy. Most commonly used with a
+              monorepo.
+            </p>
+          </div>
+
+          <div class="setting-field">
+            <div class="input-shell search-shell" aria-label="Root directory input">
+              <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+                <circle cx="11" cy="11" r="5.5"></circle>
+                <path d="M16 16L21 21"></path>
+              </svg>
+              <span>src</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="setting-row">
+          <div class="setting-copy">
+            <h2>Build Command</h2>
+            <p>
+              Render runs this command to build your app before each deploy.
+            </p>
+          </div>
+
+          <div class="setting-field">
+            <div class="input-shell command-shell" aria-label="Build command input">
+              <span class="prompt">$</span>
+              <span>pip install -r requirements.txt</span>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+  </body>
+</html>

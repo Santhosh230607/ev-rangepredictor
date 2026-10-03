@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>RouteCharge — Profile &amp; Feedback</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="app-shell">
+    <div class="page-header">
+      <div>
+        <span class="page-kicker">YOUR ACCOUNT</span>
+        <h1>Profile &amp; feedback</h1>
+      </div>
+      <span id="user-greeting" class="header-greeting"></span>
+    </div>
+
+    <main class="feedback-layout">
+      <section class="feedback-intro" aria-labelledby="feedback-title">
+        <div class="feedback-icon" aria-hidden="true">✦</div>
+        <span class="page-kicker">BUILT FOR BETTER JOURNEYS</span>
+        <h2 id="feedback-title">Help us make every trip more accurate.</h2>
+        <p>Your experience helps improve range predictions for EV drivers everywhere. Tell us what worked and where we can do better.</p>
+        <div class="feedback-promise">
+          <span aria-hidden="true">✓</span>
+          <span>Your feedback helps us build a smarter, more reliable RouteCharge.</span>
+        </div>
+      </section>
+
+      <form id="feedback-form" class="profile-form">
+        <div class="form-heading">
+          <h2>Share your feedback</h2>
+          <p>It only takes a moment.</p>
+        </div>
+
+        <div class="feedback-fields">
+          <div class="feedback-field">
+            <label for="fb-name">Name</label>
+            <input id="fb-name" name="name" type="text" autocomplete="name" placeholder="Your name" required />
+          </div>
+          <div class="feedback-field">
+            <label for="fb-rating">Overall rating</label>
+            <select id="fb-rating" name="rating" required>
+              <option value="5">5 — Excellent</option>
+              <option value="4">4 — Good</option>
+              <option value="3">3 — Average</option>
+              <option value="2">2 — Poor</option>
+              <option value="1">1 — Very poor</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="feedback-field">
+          <label for="fb-message">Your review</label>
+          <textarea id="fb-message" name="message" rows="6" required placeholder="Was the range prediction accurate? Tell us about your experience..."></textarea>
+          <span class="field-hint">Please avoid sharing sensitive personal information.</span>
+        </div>
+
+        <p id="fb-message-box" class="form-message" hidden></p>
+        <button type="submit" class="btn btn-primary btn-block">Submit feedback <span aria-hidden="true">→</span></button>
+      </form>
+    </main>
+
+    <footer class="site-footer-mini">
+      <a href="login.html">Sign out</a>
+      <span aria-hidden="true">·</span>
+      <span>Automotive AI Project</span>
+    </footer>
+  </div>
+  <script src="script.js"></script>
+  <script src="ui.js"></script>
+  <script src="feedback.js"></script>
+  <script>
+    RouteChargeUI.mountBottomNav('profile');
+    const u = JSON.parse(localStorage.getItem('ev_user') || '{}');
+    if (u.name) document.getElementById('user-greeting').textContent = u.name;
+  </script>
+</body>
+</html>

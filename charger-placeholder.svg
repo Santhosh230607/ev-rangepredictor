@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 420" role="img" aria-label="EV charging station">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#162f2c"/>
+      <stop offset="1" stop-color="#071313"/>
+    </linearGradient>
+  </defs>
+  <rect width="800" height="420" fill="url(#bg)"/>
+  <path d="M0 320h800v100H0z" fill="#0a0f10"/>
+  <path d="M190 315V130c0-18 14-32 32-32h105c18 0 32 14 32 32v185" fill="#dfe9e4"/>
+  <rect x="220" y="145" width="110" height="78" rx="8" fill="#132221"/>
+  <path d="M274 161l-24 32h22l-10 29 35-42h-23z" fill="#39ff7c"/>
+  <path d="M359 183h48c43 0 62 34 62 67v54" fill="none" stroke="#39ff7c" stroke-width="12" stroke-linecap="round"/>
+  <rect x="443" y="292" width="46" height="22" rx="7" fill="#39ff7c"/>
+  <circle cx="232" cy="344" r="13" fill="#39ff7c" opacity=".8"/>
+  <circle cx="420" cy="344" r="13" fill="#39ff7c" opacity=".8"/>
+  <text x="54" y="72" fill="#39ff7c" font-family="sans-serif" font-size="28" font-weight="700">EV CHARGING</text>
+</svg>

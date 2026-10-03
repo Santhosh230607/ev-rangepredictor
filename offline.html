@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>RouteCharge — Offline</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="app-shell">
+    <div class="page-header">
+      <a href="result.html" class="icon-btn">‹</a>
+      <h1 style="text-align:center;font-size:0.85rem;letter-spacing:0.08em">CONNECTION STATUS</h1>
+      <span style="width:40px"></span>
+    </div>
+
+    <div class="offline-graphic">
+      <div style="font-size:4rem;opacity:0.5">🚗</div>
+      <div class="offline-badge">📵 SIGNAL LOST</div>
+    </div>
+
+    <h2 style="text-align:center;margin:16px 0 8px">You're Offline</h2>
+    <p class="muted" style="text-align:center;padding:0 24px;line-height:1.5">We can't reach our servers to fetch real-time charging data and route predictions.</p>
+
+    <div class="cache-card">
+      <span style="color:var(--accent);font-size:1.5rem">⬇</span>
+      <div>
+        <strong>Cached Maps Available</strong>
+        <p class="muted" style="margin:6px 0 0;font-size:0.85rem">You can still view recently planned routes and local station info.</p>
+      </div>
+    </div>
+
+    <div style="padding:0 16px">
+      <button type="button" class="btn btn-primary btn-block" onclick="location.reload()">↻ Retry Connection</button>
+      <a href="home.html" class="btn btn-ghost btn-block" style="margin-top:10px">Work Offline</a>
+    </div>
+  </div>
+  <script src="ui.js"></script>
+  <script>RouteChargeUI.mountBottomNav('search');</script>
+</body>
+</html>

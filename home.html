@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>RouteCharge — Map</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="app-shell">
+
+    <div class="map-hub">
+      <div class="location-pill">
+        <div>
+          <div class="label">CURRENT LOCATION</div>
+          <div class="value" id="current-location-label">Detecting…</div>
+        </div>
+        <button type="button" class="icon-btn accent" aria-label="Navigation">▲</button>
+      </div>
+
+      <div class="hero-card">
+        <div class="hero-content">
+          <span class="hero-eyebrow">PLAN A SMARTER DRIVE</span>
+          <h2>No Active Route</h2>
+          <p>Plan your journey with precision. Get real-time range predictions and find optimized charging stops along your path.</p>
+          <a href="route.html" class="btn btn-primary btn-block">+ CREATE NEW ROUTE</a>
+          <p class="status-dot" style="margin-top:16px">ready for range prediction</p>
+        </div>
+      </div>
+
+      <div class="quick-chips">
+        <button type="button" class="quick-chip" onclick="location.href='result.html'">⚡ Nearby Chargers</button>
+        <button type="button" class="quick-chip" onclick="location.href='route.html'">📍 Saved Home</button>
+        <button type="button" class="quick-chip" onclick="location.href='route.html'">↻ Recent</button>
+      </div>
+    </div>
+
+    <footer class="site-footer-mini">Automotive AI — EV Range &amp; Charging Planner</footer>
+  </div>
+
+  <div id="location-modal" class="modal-backdrop hidden" role="dialog" aria-labelledby="loc-title">
+    <div class="modal-sheet" style="position:relative">
+      <button type="button" class="icon-btn modal-close" data-loc-deny aria-label="Close">✕</button>
+      <div class="modal-hero-img" aria-hidden="true"></div>
+      <h2 id="loc-title">Enable Precise Location</h2>
+      <p class="muted">RouteCharge uses your location to calculate accurate EV range based on terrain, traffic, and nearest charging stations.</p>
+      <div class="modal-feature">
+        <span class="chip-icon">🧭</span>
+        <div><strong>Accurate range prediction</strong><p class="muted" style="margin:4px 0 0;font-size:0.85rem">GPS data helps account for elevation on your route.</p></div>
+      </div>
+      <div class="modal-feature">
+        <span class="chip-icon">⚡</span>
+        <div><strong>Nearby charging discovery</strong><p class="muted" style="margin:4px 0 0;font-size:0.85rem">Find chargers within your vehicle's reach.</p></div>
+      </div>
+      <div class="toggle-row">
+        <div><strong>Precise Location</strong><div class="muted" style="font-size:0.8rem">High accuracy GPS tracking</div></div>
+        <div class="toggle" aria-hidden="true"></div>
+      </div>
+      <button type="button" class="btn btn-primary btn-block" data-loc-allow>Allow While Using App</button>
+      <button type="button" class="btn btn-ghost btn-block" style="margin-top:10px" data-loc-allow>Allow Once</button>
+      <button type="button" class="text-link" data-loc-deny>Don't Allow</button>
+      <p class="muted" style="text-align:center;font-size:0.75rem;margin-top:16px">🛡 Your location data is encrypted and never shared.</p>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+  <script src="ui.js"></script>
+  <script>
+    if (!localStorage.getItem('ev_user')) location.href = 'login.html';
+    RouteChargeUI.mountBottomNav('map');
+    const label = document.getElementById('current-location-label');
+    if (navigator.geolocation) {
+      navigator.geolocation.getCurrentPosition(
+        () => { label.textContent = 'Silicon Valley, CA'; },
+        () => { label.textContent = 'Silicon Valley, CA'; }
+      );
+    } else label.textContent = 'Silicon Valley, CA';
+  </script>
+</body>
+</html>

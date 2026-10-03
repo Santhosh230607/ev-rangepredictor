@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>RouteCharge — Route chargers</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body class="page-result">
+  <div class="app-shell">
+    <div class="page-header">
+      <a href="result.html" class="icon-btn" aria-label="Back to range estimate">‹</a>
+      <h1>Route chargers</h1>
+    </div>
+
+    <section class="destination-summary">
+      <span class="destination-summary-icon" aria-hidden="true">📍</span>
+      <div>
+        <div class="destination-summary-label">DESTINATION</div>
+        <div id="dest-display" class="destination-summary-value">—</div>
+        <div id="route-display" class="destination-summary-route"></div>
+      </div>
+    </section>
+
+    <div class="map-area">
+      <div id="route-map" role="application" aria-label="Map showing the destination, driving route, and reachable EV chargers"></div>
+    </div>
+
+    <section class="chargers-sheet">
+      <h2><span>⚡ Reachable EV Charging Stations</span> <span class="badge-count" id="station-count">0 Found</span></h2>
+      <p id="location-status" class="hint">Finding charging stations along your route…</p>
+      <p class="hint">All stations along the route before the safe predicted range ends are listed in route order. A 15% battery reserve is kept.</p>
+      <button type="button" id="enable-gps-result" class="btn btn-primary btn-block" style="margin:8px 0 14px">Enable live GPS</button>
+      <button type="button" id="retry-stations" class="btn btn-ghost btn-block hidden" style="margin:8px 0 14px">Retry charger search</button>
+      <div id="station-list"></div>
+      <a href="feedback.html" class="btn btn-ghost btn-block" style="margin-top:8px">Leave feedback</a>
+    </section>
+
+    <footer class="site-footer-mini">Automotive AI — EV Range &amp; Charging Planner</footer>
+  </div>
+  <script src="script.js"></script>
+  <script src="ui.js"></script>
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
+  <script src="result.js"></script>
+  <script>RouteChargeUI.mountBottomNav('search');</script>
+</body>
+</html>

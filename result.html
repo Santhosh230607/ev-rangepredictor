@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>RouteCharge — Range estimate</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body class="page-result">
+  <div class="app-shell no-nav">
+    <div class="page-header">
+      <a href="details.html" class="icon-btn" id="back-details" aria-label="Back to driving conditions">‹</a>
+      <h1>Range estimate</h1>
+    </div>
+
+    <main class="range-result">
+      <div class="range-result-card">
+        <span class="range-result-icon" aria-hidden="true">⚡</span>
+        <p class="range-result-label">PREDICTED DRIVING RANGE</p>
+        <div class="range-result-value"><span id="predicted-km">—</span><span>km</span></div>
+        <p class="range-result-note">Estimated from your vehicle, battery charge, and driving conditions.</p>
+      </div>
+      <p id="res-warning" class="warning-text hidden"></p>
+      <button type="button" id="show-stations" class="btn btn-primary btn-block">View route &amp; charging stations</button>
+      <a href="feedback.html" class="btn btn-ghost btn-block" style="margin-top:10px">Leave feedback</a>
+    </main>
+
+    <footer class="site-footer-mini">Automotive AI — EV Range &amp; Charging Planner</footer>
+  </div>
+  <script src="script.js"></script>
+  <script src="ui.js"></script>
+  <script src="range.js"></script>
+</body>
+</html>

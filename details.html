@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>RouteCharge — Driving Conditions</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="app-shell">
+    <div class="conditions-hero"></div>
+
+    <div class="dest-bar">
+      <span style="color:var(--accent)">📍</span>
+      <div>
+        <div class="label" style="font-size:0.65rem;color:var(--muted)">CURRENT DESTINATION</div>
+        <div id="dest-display" style="font-weight:600">—</div>
+      </div>
+      <a href="route.html" class="icon-btn" aria-label="Edit route">⚙</a>
+    </div>
+
+    <form id="trip-form" class="conditions-sheet">
+      <h2>Driving Conditions <button type="button" class="live-sync">Live Sync</button></h2>
+
+      <input type="hidden" id="start-place" name="start_place" />
+      <input type="hidden" id="dest-place" name="dest_place" />
+      <input type="hidden" id="weather" name="weather" value="mild" />
+      <input type="hidden" id="road-type" name="road_type" value="non_traffic" />
+
+      <div class="slider-row">
+        <div class="slider-head"><span>🌬 AVG. CRUISING SPEED</span><span class="val" id="speed-val">65 km/h</span></div>
+        <input type="range" id="cruise-speed" min="20" max="200" value="65" data-slider-display="speed-val" data-format="{v} km/h" />
+      </div>
+      <div class="slider-row">
+        <div class="slider-head"><span>🌡 AMBIENT TEMPERATURE</span><span class="val" id="temp-val">22 °C</span></div>
+        <input type="range" id="ambient-temp" min="-5" max="45" value="22" data-slider-display="temp-val" data-format="{v} °C" />
+      </div>
+      <div class="slider-row">
+        <div class="slider-head"><span>🔋 CURRENT BATTERY CHARGE</span><span class="val" id="charge-val">85 %</span></div>
+        <input type="range" id="charge-pct" name="charge_pct" min="5" max="100" value="85" data-slider-display="charge-val" data-format="{v} %" />
+      </div>
+
+      <div class="topo-label">ROUTE TOPOGRAPHY / ROAD TYPE</div>
+      <div class="topo-row">
+        <button type="button" class="topo-btn active" data-road="non_traffic">Flat</button>
+        <button type="button" class="topo-btn" data-road="mixed_traffic">Hilly</button>
+        <button type="button" class="topo-btn" data-road="off_road">Mountainous</button>
+        <button type="button" class="topo-btn" data-road="traffic_road">Urban</button>
+        <button type="button" class="topo-btn" data-road="highway_no_traffic">Highway</button>
+      </div>
+
+      <p class="muted" style="font-size:0.85rem">Vehicle: <strong id="vehicle-label">—</strong></p>
+
+      <div id="fields-2wheeler" class="vehicle-extra vehicle-fields hidden">
+        <label class="check-row"><input type="checkbox" id="ac-2w" /> AC / heater on</label>
+        <label for="riders-2w">Riders</label><input id="riders-2w" type="number" min="1" max="2" value="1" />
+        <label for="battery-kwh-2w">Battery (kWh)</label><input id="battery-kwh-2w" type="number" value="3.5" step="0.1" />
+        <label for="rated-range-2w">Rated range (km)</label><input id="rated-range-2w" type="number" value="120" />
+      </div>
+      <div id="fields-3wheeler" class="vehicle-extra vehicle-fields hidden">
+        <label class="check-row"><input type="checkbox" id="ac-3w" /> AC on</label>
+        <label for="riders-3w">Passengers</label><input id="riders-3w" type="number" min="1" max="5" value="2" />
+        <label for="cargo-3w">Cargo (kg)</label><input id="cargo-3w" type="number" value="0" />
+        <label for="battery-kwh-3w">Battery (kWh)</label><input id="battery-kwh-3w" type="number" value="10" />
+        <label for="rated-range-3w">Rated range (km)</label><input id="rated-range-3w" type="number" value="100" />
+      </div>
+      <div id="fields-4wheeler" class="vehicle-extra vehicle-fields hidden">
+        <label class="check-row"><input type="checkbox" id="ac-4w" checked /> AC on</label>
+        <label for="riders-4w">Occupants</label><input id="riders-4w" type="number" min="1" max="7" value="2" />
+        <label for="battery-kwh-4w">Battery (kWh)</label><input id="battery-kwh-4w" type="number" value="50" />
+        <label for="rated-range-4w">Rated range (km)</label><input id="rated-range-4w" type="number" value="400" />
+      </div>
+      <div id="fields-lorry" class="vehicle-extra vehicle-fields hidden">
+        <label class="check-row"><input type="checkbox" id="ac-lorry" /> AC on</label>
+        <label for="load-pct">Load (%)</label><input id="load-pct" type="number" min="0" max="100" value="70" />
+        <label for="cargo-kg">Cargo (kg)</label><input id="cargo-kg" type="number" value="5000" />
+        <label for="battery-kwh-lorry">Battery (kWh)</label><input id="battery-kwh-lorry" type="number" value="300" />
+        <label for="rated-range-lorry">Rated range empty (km)</label><input id="rated-range-lorry" type="number" value="250" />
+      </div>
+
+      <p id="form-error" class="form-message error" hidden></p>
+      <button type="submit" class="btn btn-primary btn-block">Predict my range</button>
+    </form>
+  </div>
+  <script src="script.js"></script>
+  <script src="ui.js"></script>
+  <script src="mileage.js"></script>
+</body>
+</html>

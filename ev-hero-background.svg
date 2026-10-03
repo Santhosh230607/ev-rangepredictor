@@ -1,0 +1,73 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 900" fill="none">
+  <defs>
+    <linearGradient id="sky" x1="0" y1="0" x2="1440" y2="900" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#18383A"/>
+      <stop offset=".52" stop-color="#102324"/>
+      <stop offset="1" stop-color="#090F11"/>
+    </linearGradient>
+    <linearGradient id="horizon" x1="600" y1="400" x2="1440" y2="720" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#264B47"/>
+      <stop offset="1" stop-color="#101819"/>
+    </linearGradient>
+    <linearGradient id="carBody" x1="780" y1="538" x2="1260" y2="708" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#E6F0E9"/>
+      <stop offset=".55" stop-color="#AFC3BB"/>
+      <stop offset="1" stop-color="#647B76"/>
+    </linearGradient>
+    <linearGradient id="chargerBody" x1="1070" y1="228" x2="1224" y2="571" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#E0ECE6"/>
+      <stop offset="1" stop-color="#839994"/>
+    </linearGradient>
+    <radialGradient id="glow" cx="0" cy="0" r="1" gradientTransform="matrix(0 268 -498 0 1058 555)" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#39FF7C" stop-opacity=".22"/>
+      <stop offset="1" stop-color="#39FF7C" stop-opacity="0"/>
+    </radialGradient>
+    <filter id="blur" x="519" y="244" width="1050" height="722" color-interpolation-filters="sRGB" filterUnits="userSpaceOnUse">
+      <feGaussianBlur stdDeviation="42"/>
+    </filter>
+  </defs>
+  <path fill="url(#sky)" d="M0 0h1440v900H0z"/>
+  <path fill="url(#glow)" d="M0 0h1440v900H0z"/>
+  <circle cx="1134" cy="178" r="3" fill="#D7F8E4" fill-opacity=".8"/>
+  <circle cx="1302" cy="246" r="2" fill="#D7F8E4" fill-opacity=".6"/>
+  <circle cx="942" cy="124" r="2" fill="#D7F8E4" fill-opacity=".55"/>
+  <path fill="#132729" d="m0 501 143-72 114 59 173-139 147 100 144-77 156 120 143-86 148 91 132-77 140 72v408H0z"/>
+  <path fill="#193333" d="m0 590 158-73 144 73 187-116 144 91 174-72 148 86 146-89 167 93 172-77v394H0z"/>
+  <path fill="url(#horizon)" d="M0 694h1440v206H0z"/>
+  <ellipse cx="1038" cy="746" fill="#39FF7C" fill-opacity=".16" filter="url(#blur)" rx="444" ry="116"/>
+  <path stroke="#89A79D" stroke-opacity=".18" stroke-width="3" d="M0 770h1440M160 835h1120"/>
+  <path stroke="#39FF7C" stroke-dasharray="5 18" stroke-linecap="round" stroke-opacity=".5" stroke-width="4" d="M811 822h484"/>
+  <g opacity=".8">
+    <path fill="#243D3D" d="M137 501h31v193h-31zM129 492h47v15h-47z"/>
+    <path stroke="#376462" stroke-linecap="round" stroke-width="5" d="M152 531v105"/>
+    <circle cx="152" cy="520" r="5" fill="#39FF7C"/>
+  </g>
+  <g>
+    <path fill="url(#chargerBody)" d="M1113 228h91c11 0 20 9 20 20v324h-131V249c0-12 8-21 20-21Z"/>
+    <path fill="#3C5755" d="M1093 252h131v17h-131z"/>
+    <rect x="1114" y="292" width="88" height="109" rx="8" fill="#142526"/>
+    <rect x="1124" y="302" width="68" height="89" rx="4" fill="#203C3B"/>
+    <path fill="#39FF7C" d="m1168 318-22 32h17l-8 28 29-38h-18z"/>
+    <circle cx="1134" cy="428" r="7" fill="#39FF7C"/>
+    <path stroke="#D5E1DA" stroke-linecap="round" stroke-width="12" d="M1158 572v33"/>
+    <path stroke="#C3D2CB" stroke-linecap="round" stroke-width="13" d="M1223 361h33c35 0 57 23 57 57v138c0 21-17 38-38 38h-24"/>
+    <path fill="#39FF7C" d="M1245 581h54v25h-54z"/>
+  </g>
+  <g>
+    <path fill="#536965" d="M739 661c24-15 58-34 91-51l88-99c21-24 51-38 83-40l98-8c41-3 78 10 110 38l82 73c28 8 50 25 62 50l13 28c8 18-3 38-22 42l-45 9H776l-46-14c-14-4-20-21-10-33l19-25Z"/>
+    <path fill="url(#carBody)" d="M755 653c24-15 57-32 86-46l88-99c19-22 45-35 74-37l92-7c38-3 71 9 101 34l74 66-16 93H761c-13 0-17-16-6-24Z"/>
+    <path fill="#233C3D" d="m938 514 93-2 15 91H857l81-89Z"/>
+    <path fill="#233C3D" d="m1050 512 45-4c34-3 64 8 91 30l62 54-2 11h-180l-16-91Z"/>
+    <path stroke="#39FF7C" stroke-linecap="round" stroke-opacity=".75" stroke-width="5" d="M800 642h100M1137 652h83"/>
+    <path fill="#F2F8F3" d="M923 617h-42l43-83 31 4-32 79ZM1162 615h-39l-24-87 31 2 54 66-22 19Z"/>
+    <path fill="#152020" d="M878 690c0-40 32-72 72-72s72 32 72 72-32 72-72 72-72-32-72-72ZM1164 690c0-40 32-72 72-72s72 32 72 72-32 72-72 72-72-32-72-72Z"/>
+    <circle cx="950" cy="690" r="43" fill="#8CA39A"/>
+    <circle cx="950" cy="690" r="28" fill="#1C302F"/>
+    <circle cx="950" cy="690" r="8" fill="#B7C8C0"/>
+    <circle cx="1236" cy="690" r="43" fill="#8CA39A"/>
+    <circle cx="1236" cy="690" r="28" fill="#1C302F"/>
+    <circle cx="1236" cy="690" r="8" fill="#B7C8C0"/>
+    <path fill="#F5F8F2" d="M1337 613c13 8 22 19 27 33l-39 3 12-36Z"/>
+    <path fill="#39FF7C" fill-opacity=".85" d="m758 638 35-18-10 37-36 9 11-28Z"/>
+  </g>
+</svg>

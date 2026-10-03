@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>RouteCharge — Plan Route</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="app-shell">
+    <div class="page-header">
+      <a href="home.html" class="icon-btn" aria-label="Back">‹</a>
+      <h1>Plan route</h1>
+    </div>
+
+    <div class="map-area" style="height:140px"></div>
+
+    <div class="route-panel" style="margin-top:-24px;position:relative;z-index:2">
+      <div class="route-fields">
+        <span class="route-line" aria-hidden="true"></span>
+        <span class="route-dot" style="top:22px" aria-hidden="true"></span>
+        <span class="route-dot end" style="bottom:22px" aria-hidden="true"></span>
+        <input id="start-place" class="route-input" placeholder="Current Location" value="" />
+        <button type="button" id="use-gps" class="icon-btn accent" aria-label="Use my current location" title="Use my current location">⌖</button>
+        <input id="dest-place" class="route-input active" placeholder="Where to?" />
+      </div>
+      <button type="button" id="continue-route" class="btn btn-primary btn-block" style="margin-top:12px">Continue</button>
+    </div>
+
+    <div class="sheet">
+      <div class="sheet-header">
+        <h2>Suggested Destinations</h2>
+        <a href="#" class="muted" style="font-size:0.8rem;color:var(--accent)">SEE ALL</a>
+      </div>
+      <div class="chip-row">
+        <button type="button" class="filter-chip active">🕐 Recent</button>
+        <button type="button" class="filter-chip">★ Favorites</button>
+        <button type="button" class="filter-chip">⚡ Charging</button>
+      </div>
+      <div class="suggest-item" data-start="Downtown San Jose, CA" data-dest="Santa Clara, CA">
+        <span>🕐</span>
+        <div class="meta"><strong>Downtown San Jose → Santa Clara</strong><span>Bay Area, CA</span></div>
+        <span class="time">SHORT TRIP</span>
+      </div>
+      <div class="suggest-item" data-start="San Jose, CA" data-dest="Gilroy, CA">
+        <span>🕐</span>
+        <div class="meta"><strong>San Jose → Gilroy</strong><span>South Bay, CA</span></div>
+        <span class="time">HIGHWAY</span>
+      </div>
+      <div class="suggest-item" data-start="San Francisco, CA" data-dest="Oakland, CA">
+        <span>🕐</span>
+        <div class="meta"><strong>San Francisco → Oakland</strong><span>Bay Area, CA</span></div>
+        <span class="time">HIGHWAY</span>
+      </div>
+    </div>
+
+    <div class="fab-row">
+      <button type="button" class="fab secondary" aria-label="Filters">☰</button>
+      <button type="button" class="fab primary" id="fab-go" aria-label="Go">➤</button>
+    </div>
+  </div>
+  <script src="script.js"></script>
+  <script src="ui.js"></script>
+  <script>
+    if (!localStorage.getItem('ev_user')) location.href = 'login.html';
+    RouteChargeUI.mountBottomNav('search');
+    const start = document.getElementById('start-place');
+    const dest = document.getElementById('dest-place');
+    const useGps = document.getElementById('use-gps');
+    const saved = JSON.parse(sessionStorage.getItem('ev_route') || '{}');
+    if (saved.start) start.value = saved.start;
+    if (saved.dest) dest.value = saved.dest;
+    if (!start.value) start.placeholder = 'Current Location';
+
+    useGps.addEventListener('click', async () => {
+      useGps.disabled = true;
+      useGps.textContent = '…';
+      try {
+        await window.EVApp.requestLocation();
+        start.value = 'Current Location';
+        start.placeholder = 'GPS location enabled';
+      } catch {
+        start.placeholder = 'Allow location access and try again';
+      } finally {
+        useGps.disabled = false;
+        useGps.textContent = '⌖';
+      }
+    });
+
+    function saveAndGo() {
+      const s = start.value.trim() || 'Current Location';
+      const d = dest.value.trim();
+      if (!d) { dest.focus(); return; }
+      sessionStorage.setItem('ev_route', JSON.stringify({ start: s, dest: d }));
+      location.href = 'select-vehicle.html';
+    }
+    document.getElementById('continue-route').addEventListener('click', saveAndGo);
+    document.getElementById('fab-go').addEventListener('click', saveAndGo);
+    document.querySelectorAll('.suggest-item').forEach((el) => {
+      el.addEventListener('click', () => {
+        start.value = el.dataset.start;
+        dest.value = el.dataset.dest;
+        saveAndGo();
+      });
+    });
+  </script>
+</body>
+</html>
